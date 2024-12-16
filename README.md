@@ -27,7 +27,7 @@ To set up the project, follow these steps:
    ```bash
    git clone https://github.com/username/repository_name.git
 
-2 . ## Requirements
+2. Requirements
 
 - Python 3.6+
 - OpenCV (`opencv-python`)
@@ -35,10 +35,11 @@ To set up the project, follow these steps:
 - JSON
 
 You can install the required dependencies by running:
+## Installation
 
 ```bash
 pip install -r requirements.txt
-## Installation
+
 
 
 
