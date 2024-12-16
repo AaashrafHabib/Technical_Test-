@@ -16,7 +16,18 @@ This repository contains a Python project that analyzes the quality of technical
 
 - **Quality Score**: Combines the technical and structural scores to provide an overall image quality score on a scale of 0 to 1.
 
-## Requirements
+##Examples : 
+![image](https://github.com/user-attachments/assets/61e48e06-58eb-459c-8004-fdadb157b631)
+
+
+
+To set up the project, follow these steps:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AaashrafHabib/Technical_Test-
+
+2. Requirements
 
 - Python 3.6+
 - OpenCV (`opencv-python`)
@@ -24,6 +35,11 @@ This repository contains a Python project that analyzes the quality of technical
 - JSON
 
 You can install the required dependencies by running:
+## Installation
 
 ```bash
 pip install -r requirements.txt
+
+
+
+
