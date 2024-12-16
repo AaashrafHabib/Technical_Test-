@@ -25,7 +25,7 @@ To set up the project, follow these steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/repository_name.git
+   git clone https://github.com/AaashrafHabib/Technical_Test-
 
 2. Requirements
 
