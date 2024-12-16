@@ -1,0 +1,138 @@
+{
+    "patent_id": "FR2789320A1",
+    "title": "Machine tool drawing",
+    "date": "2023-11-20"
+}
+{
+    "technical": {
+        "line_clarity": {
+            "straight_lines_detected": 12180,
+            "score": 20
+        },
+        "contrast": {
+            "black_white_ratio": 0.05999999865889549,
+            "grayscale_distribution": 0.45,
+            "background_separation": 1.0,
+            "score": 8.5
+        },
+        "resolution": {
+            "dimensions": [
+                3508,
+                2592
+            ],
+            "pixel_density": 0.9092736,
+            "detail_preservation": 0.41801711514610096,
+            "score": 15
+        },
+        "total": 43.5
+    },
+    "structural": {
+        "composition": {
+            "has_frame": true,
+            "spatial_organization": 0.85,
+            "color_balance": 0.0,
+            "symmetry": 0,
+            "score": 0.2833333333333333
+        },
+        "legibility": {
+            "noise_level": 0.36,
+            "overlap_ratio": 0.01,
+            "spacing_quality": -0.02,
+            "score": 8.03
+        },
+        "conformity": {
+            "technical_annotations": 0.85,
+            "score": 12.75
+        },
+        "total": 21.063333333333333
+    },
+    "quality_score": 0.6456333333333333
+}{
+    "technical": {
+        "line_clarity": {
+            "straight_lines_detected": 7636,
+            "score": 20
+        },
+        "contrast": {
+            "black_white_ratio": 0.03999999910593033,
+            "grayscale_distribution": 0.39,
+            "background_separation": 1.0,
+            "score": 8.12
+        },
+        "resolution": {
+            "dimensions": [
+                3508,
+                2592
+            ],
+            "pixel_density": 0.9092736,
+            "detail_preservation": 0.3162059580270395,
+            "score": 15
+        },
+        "total": 43.12
+    },
+    "structural": {
+        "composition": {
+            "has_frame": true,
+            "spatial_organization": 0.85,
+            "color_balance": 0.0,
+            "symmetry": 0,
+            "score": 0.2833333333333333
+        },
+        "legibility": {
+            "noise_level": 0.38,
+            "overlap_ratio": 0.0,
+            "spacing_quality": -0.02,
+            "score": 7.99
+        },
+        "conformity": {
+            "technical_annotations": 0.85,
+            "score": 12.75
+        },
+        "total": 21.023333333333333
+    },
+    "quality_score": 0.6414333333333333
+}{
+    "technical": {
+        "line_clarity": {
+            "straight_lines_detected": 8203,
+            "score": 20
+        },
+        "contrast": {
+            "black_white_ratio": 0.03999999910593033,
+            "grayscale_distribution": 0.39,
+            "background_separation": 1.0,
+            "score": 8.12
+        },
+        "resolution": {
+            "dimensions": [
+                3508,
+                2592
+            ],
+            "pixel_density": 0.9092736,
+            "detail_preservation": 0.3092663727944024,
+            "score": 15
+        },
+        "total": 43.12
+    },
+    "structural": {
+        "composition": {
+            "has_frame": true,
+            "spatial_organization": 0.85,
+            "color_balance": 0.0,
+            "symmetry": 0,
+            "score": 0.2833333333333333
+        },
+        "legibility": {
+            "noise_level": 0.42,
+            "overlap_ratio": 0.01,
+            "spacing_quality": -0.02,
+            "score": 7.77
+        },
+        "conformity": {
+            "technical_annotations": 0.85,
+            "score": 12.75
+        },
+        "total": 20.803333333333335
+    },
+    "quality_score": 0.6392333333333333
+}
