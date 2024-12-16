@@ -27,3 +27,6 @@ You can install the required dependencies by running:
 
 ```bash
 pip install -r requirements.txt
+
+![image](https://github.com/user-attachments/assets/61e48e06-58eb-459c-8004-fdadb157b631)
+
