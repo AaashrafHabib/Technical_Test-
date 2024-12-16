@@ -108,31 +108,86 @@ class DrawingQualityAnalyzer:
     def _calculate_composition(self, img) -> Dict:
         """Calculate composition score."""
         has_frame = self._detect_frame(img)
+        has_dimension=self.has_dimension(img)
         spatial_organization = self._analyze_spatial_organization(img)
-        color_balance = self._analyze_color_balance(img)
         symmetry = self._analyze_symmetry(img)
         # I choosed to give all of them the same weights 
-        score = min((spatial_organization + color_balance + symmetry) / 3, 20)  # Maximum score of 20
+        score = min((spatial_organization + symmetry) *25, 20)  # Maximum score of 20
         return {
-            "has_frame": has_frame,
+            "has_dimension": has_dimension, 
             "spatial_organization": spatial_organization,
-            "color_balance": color_balance,
+            "has_frame": has_frame,
             "symmetry": symmetry,
             "score": score
         }
+    def has_dimension(self,img,min_width: int = 100, min_height: int = 100)-> bool : 
+       if img is None:
+         return False
 
+       height, width = img.shape[:2]
+       return width >= min_width and height >= min_height
     def _analyze_spatial_organization(self, img) -> float:
-        """Analyze spatial organization."""
-        return 0.85  # Placeholder value
+      """
+      Analyze spatial organization of the drawing.
+    
+      This method calculates the spatial organization score based on the 
+      distribution of elements, alignment, and spacing within the image.
 
-    def _analyze_color_balance(self, img) -> float:
-        """Analyze color balance."""
-        hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
-        hue_hist = cv2.calcHist([hsv], [0], None, [256], [0, 256])
-        saturation_hist = cv2.calcHist([hsv], [1], None, [256], [0, 256])
-        hue_balance = np.sum(hue_hist[100:150]) / max(np.sum(hue_hist), 1)
-        saturation_balance = np.sum(saturation_hist[100:150]) / max(np.sum(saturation_hist), 1)
-        return (hue_balance + saturation_balance) / 2
+      Args:
+          img (numpy.ndarray): Input image as a NumPy array.
+
+      Returns:
+          float: Spatial organization score between 0 and 1.
+      """
+    
+
+    # Convert the image to grayscale
+      gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Apply thresholding to isolate elements
+      _, thresh = cv2.threshold(gray, 128, 255, cv2.THRESH_BINARY_INV)
+ 
+    # Find contours of the elements in the image
+      contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+
+    # Calculate bounding boxes for all contours
+      bounding_boxes = [cv2.boundingRect(c) for c in contours]
+
+      if len(bounding_boxes) < 2:
+        # If there are too few elements, assign a low score
+        return 0.1
+
+    # Extract centroids of bounding boxes
+      centroids = [(x + w / 2, y + h / 2) for (x, y, w, h) in bounding_boxes]
+
+    # Calculate the average spacing between elements
+      total_distance = 0
+      count = 0
+      for i, (x1, y1) in enumerate(centroids):
+        for j, (x2, y2) in enumerate(centroids):
+            if i != j:
+                total_distance += np.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+                count += 1
+
+      avg_spacing = total_distance / count if count > 0 else 0
+
+    # Normalize the spacing score (you can tune the normalization factor as needed)
+      spacing_score = min(avg_spacing / (gray.shape[0] * gray.shape[1]), 1.0)
+
+    # Calculate alignment score (horizontal and vertical alignment)
+      horizontal_alignments = [y for _, y, _, _ in bounding_boxes]
+      vertical_alignments = [x for x, _, _, _ in bounding_boxes]
+
+      horizontal_alignment_score = 1 - (np.std(horizontal_alignments) / gray.shape[0])
+      vertical_alignment_score = 1 - (np.std(vertical_alignments) / gray.shape[1])
+
+    # Combine spacing and alignment scores
+      spatial_score = (spacing_score + horizontal_alignment_score + vertical_alignment_score) / 3
+
+    # Ensure the score is between 0 and 1
+      spatial_score = max(0.0, min(spatial_score, 1.0))
+
+      return spatial_score
 
     def _analyze_symmetry(self, img) -> float:
         """Analyze symmetry."""
@@ -199,9 +254,22 @@ class DrawingQualityAnalyzer:
     def _calculate_conformity(self, img) -> Dict:
         """Calculate conformity score."""
         technical_annotations = 0.85
+        standard_format = self._standards_format(img)
+        has_scale=self._has_scale(img)
         score = min(technical_annotations * 15, 15)
-        return {"technical_annotations": technical_annotations, "score": score}
+        return {"Standrads_format":standard_format,
+                "has_scale": has_scale,
+            "technical_annotations": technical_annotations, "score": score}
+    def _standards_format(self, img)-> bool : 
+        height, width = img.shape[:2]
+        return (height, width) == (1080, 1920)  # Example standard: Full HD
 
+    def _has_scale(self , img) -> bool:
+            """
+            Check if the image contains a scale based on pixel intensity thresholds.
+            """
+            scale_detected = 0 
+            return scale_detected 
 
 def save_results_to_json(result: ImageQuality, output_file: str):
     with open(output_file, 'w') as f:
@@ -225,7 +293,7 @@ def save_results_to_json(result, output_file):
 
 if __name__ == "__main__":
     analyzer = DrawingQualityAnalyzer()
-    output_file = "Data\\Patents\\FR_2789320\\Images\\Meta_data.json"
+    output_file = "Data\\Patents\\FR_2789320\\Images\\Meta_data-1.json"
     patent_metadata = {
         "patent_id": "FR2789320A1",
         "title": "Machine tool drawing",

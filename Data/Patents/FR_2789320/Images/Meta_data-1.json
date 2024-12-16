@@ -2,7 +2,8 @@
     "patent_id": "FR2789320A1",
     "title": "Machine tool drawing",
     "date": "2023-11-20"
-}, {
+}
+{
     "technical": {
         "line_clarity": {
             "straight_lines_detected": 12180,
@@ -27,11 +28,11 @@
     },
     "structural": {
         "composition": {
+            "has_dimension": true,
+            "spatial_organization": 0.4815335028753102,
             "has_frame": true,
-            "spatial_organization": 0.85,
-            "color_balance": 0.0,
             "symmetry": 0,
-            "score": 0.2833333333333333
+            "score": 12.038337571882755
         },
         "legibility": {
             "noise_level": 0.36,
@@ -40,13 +41,15 @@
             "score": 8.03
         },
         "conformity": {
+            "Standrads_format": false,
+            "has_scale": 0,
             "technical_annotations": 0.85,
             "score": 12.75
         },
-        "total": 21.063333333333333
+        "total": 32.81833757188275
     },
-    "quality_score": 0.6456333333333333
-} {
+    "quality_score": 0.7631833757188276
+}{
     "technical": {
         "line_clarity": {
             "straight_lines_detected": 7636,
@@ -71,11 +74,11 @@
     },
     "structural": {
         "composition": {
+            "has_dimension": true,
+            "spatial_organization": 0.47497340288964923,
             "has_frame": true,
-            "spatial_organization": 0.85,
-            "color_balance": 0.0,
             "symmetry": 0,
-            "score": 0.2833333333333333
+            "score": 11.87433507224123
         },
         "legibility": {
             "noise_level": 0.38,
@@ -84,13 +87,15 @@
             "score": 7.99
         },
         "conformity": {
+            "Standrads_format": false,
+            "has_scale": 0,
             "technical_annotations": 0.85,
             "score": 12.75
         },
-        "total": 21.023333333333333
+        "total": 32.61433507224123
     },
-    "quality_score": 0.6414333333333333
-} {
+    "quality_score": 0.7573433507224123
+}{
     "technical": {
         "line_clarity": {
             "straight_lines_detected": 8203,
@@ -115,11 +120,11 @@
     },
     "structural": {
         "composition": {
+            "has_dimension": true,
+            "spatial_organization": 0.47533749822654414,
             "has_frame": true,
-            "spatial_organization": 0.85,
-            "color_balance": 0.0,
             "symmetry": 0,
-            "score": 0.2833333333333333
+            "score": 11.883437455663604
         },
         "legibility": {
             "noise_level": 0.42,
@@ -128,10 +133,12 @@
             "score": 7.77
         },
         "conformity": {
+            "Standrads_format": false,
+            "has_scale": 0,
             "technical_annotations": 0.85,
             "score": 12.75
         },
-        "total": 20.803333333333335
+        "total": 32.40343745566361
     },
-    "quality_score": 0.6392333333333333
+    "quality_score": 0.7552343745566361
 }
